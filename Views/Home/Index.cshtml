@@ -1,0 +1,36 @@
+﻿@model IEnumerable<CRUD_APSNET.Models.Employee>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Sr No.</th>
+            <th>Employee Name</th>
+            <th>City</th>
+            <th>State</th>
+            <th>country</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ( var item in Model )
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Name</td>
+                <td>@item.City</td>
+                <td>@item.State</td>
+                <td>@item.Country</td>
+                <td>@item.Department</td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
